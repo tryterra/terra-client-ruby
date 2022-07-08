@@ -37,32 +37,32 @@ Now you can call the following functions from the instance:
 - `deauthUser(userId:string)`
 - `getActivity( 
       userId:string, 
-      start_date:string, 
-      end_date:string_optional, 
+      start_date:date, 
+      end_date:date_optional, 
       toWebhook:boolean_optional
   )`
 - `getDaily( 
       userId:string, 
-      start_date:string, 
-      end_date:string_optional, 
+      start_date:date, 
+      end_date:date_optional, 
       toWebhook:boolean_optional
   )`
 - `getBody( 
       userId:string, 
-      start_date:string, 
-      end_date:string_optional, 
+      start_date:date, 
+      end_date:date_optional, 
       toWebhook:boolean_optional
   )`
 - `getSleep( 
       userId:string, 
-      start_date:string, 
-      end_date:string_optional, 
+      start_date:date, 
+      end_date:date_optional, 
       toWebhook:boolean_optional
   )`
 - `getMenstruation( 
       userId:string, 
-      start_date:string, 
-      end_date:string_optional, 
+      start_date:date, 
+      end_date:date_optional, 
       toWebhook:boolean_optional
   )`
 - `parseWebhook(payload:object, type:string, userId:string_optional)`
