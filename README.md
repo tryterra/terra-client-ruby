@@ -70,3 +70,19 @@ Now you can call the following functions from the instance:
 In addition, all the data models documented on https://docs.tryterra.co/data-models are available to import and use.
 
 ## Example
+
+```rb
+require 'Terra'
+
+begin
+    terra = TerraAPI::Terra.new("testingAnis", "O571xuiDDS9aGXlqro9youav9YOwD3r57YqC7bj0")
+rescue TerraError => e
+    # Handle errors here
+end
+
+begin
+    puts terra.getProviders # will display a list of available providers
+rescue TerraError => e
+    # Handle errors here
+end
+```
