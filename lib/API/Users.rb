@@ -33,7 +33,7 @@ module Users
 
         case res.code
             when 200
-                return TerraResponse::parse(res)
+                return TerraResponse::parseBody(res)
             when 400...600
                 raise TerraError.new(res)
         end
@@ -53,7 +53,7 @@ module Users
         rescue HTTParty::Error => e
             raise TerraError.new(e)
         else 
-            return TerraResponse::parse(res) 
+            return TerraResponse::parseBody(res) 
         end
     end
 end
