@@ -65,6 +65,6 @@ Now you can call the following functions from the instance:
       end_date:string_optional, 
       toWebhook:boolean_optional
   )`
-- `parseWebhook(payload:object, type:string, userId:string_optional`
+- `parseWebhook(payload:object, type:string, userId:string_optional)`
 
 In addition, all the data models documented on https://docs.tryterra.co/data-models are available to import and use.
