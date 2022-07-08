@@ -75,7 +75,7 @@ In addition, all the data models documented on https://docs.tryterra.co/data-mod
 require 'Terra'
 
 begin
-    terra = TerraAPI::Terra.new("testingAnis", "O571xuiDDS9aGXlqro9youav9YOwD3r57YqC7bj0")
+    terra = TerraAPI::Terra.new(YOUR_DEV_ID, YOUR_API_KEY)
 rescue TerraError => e
     # Handle errors here
 end
