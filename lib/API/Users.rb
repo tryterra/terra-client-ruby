@@ -14,6 +14,7 @@
 
 require 'httparty'
 require 'API/TerraError'
+require 'API/TerraResponse'
 
 module Users 
     def self.GetUser(devId, apiKey, api_path, userId)
@@ -32,7 +33,7 @@ module Users
 
         case res.code
             when 200
-                return res.body
+                return TerraResponse::parse(res)
             when 400...600
                 raise TerraError.new(res)
         end
@@ -52,7 +53,7 @@ module Users
         rescue HTTParty::Error => e
             raise TerraError.new(e)
         else 
-            return res.body 
+            return TerraResponse::parse(res) 
         end
     end
 end

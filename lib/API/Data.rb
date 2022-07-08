@@ -13,6 +13,7 @@
 #  limitations under the License.
 
 require "API/Helpers"
+require 'API/TerraResponse'
 
 module Data 
     def self.GetData(
@@ -46,7 +47,7 @@ module Data
         
         case res.code
             when 200
-                return res.body
+                return TerraResponse::parseBody(res)
             when 400...600
                 raise TerraError.new(res)
         end

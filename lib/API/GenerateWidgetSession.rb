@@ -15,6 +15,7 @@
 require 'httparty'
 require 'json'
 require 'API/TerraError'
+require 'API/TerraResponse'
 
 module GWS
     def self.GenerateWidgetSession(
@@ -54,7 +55,7 @@ module GWS
         body = JSON.parse(res.body)
         case body["status"]
             when "success"
-                return body
+                return TerraResponse::parseBody(res)
             else
                 raise TerraError.new(res)
         end

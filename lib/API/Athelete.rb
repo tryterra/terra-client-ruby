@@ -15,9 +15,10 @@
 require 'httparty'
 require 'json'
 require 'API/TerraError'
-
+require 'API/TerraResponse'
 module Athelete
     def self.Get(devId, apiKey, api_path, userId, toWebhook)
+
         options = {
             "headers" => {
                 "X-API-Key"=> apiKey,
@@ -33,7 +34,7 @@ module Athelete
         
         case res.code
             when 200
-                return res.body
+                return TerraResponse::parseBody(res)
             when 400...600
                 raise TerraError.new(res)
         end

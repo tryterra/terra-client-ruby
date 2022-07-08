@@ -20,6 +20,7 @@ require "API/Subscribers"
 require "API/Users"
 require "API/Data"
 require "API/Helpers"
+require "API/TerraWebhook"
 
 
 module TerraAPI 
@@ -107,6 +108,10 @@ module TerraAPI
 
         def getMenstruation(userId, start_date, end_date=nil, toWebhook=nil)
             return getData("menstruation", userId, start_date, end_date, toWebhook)
+        end
+
+        def parseWebhook(payload, type, userId=nil)
+            return TerraWebhook.new(playload, type, userId)
         end
     end
 end

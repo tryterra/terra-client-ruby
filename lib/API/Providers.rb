@@ -14,6 +14,7 @@
 
 require 'httparty'
 require 'API/TerraError'
+require 'API/TerraResponse'
 
 module Provider 
     def self.GetProviders(devId, apiKey, api_path)
@@ -31,7 +32,7 @@ module Provider
         )
         case res.code
             when 200
-                return res.body
+                return TerraResponse::parseBody(res)
             when 400...600
                 raise TerraError.new(res)
         end
