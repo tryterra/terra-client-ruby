@@ -1,16 +1,18 @@
-require_relative '../lib/Terra'
+require 'Terra'
 
 #initialize the api here
 begin
-    terra = TerraAPI::Terra.new(YOUR_DEV_ID, YOUR_API_KEY)
+    terra = TerraAPI::Terra.new(YOUR_DEV_ID, YOUR_USER_ID)
 rescue TerraError => e
     puts e
 end
 
 #begin
-#    puts terra.getProviders
+#    test = terra.getProviders
 #rescue TerraError => e
 #    puts e
+#else
+#    puts test["status"]
 #end
 
 #begin
@@ -44,7 +46,7 @@ end
 #end
 
 #begin
-#    puts terra.getAthelete(YOUR_USER_ID, false)
+#    puts terra.getAthelete(123, true)
 #rescue TerraError => e 
 #    puts e
 #end
