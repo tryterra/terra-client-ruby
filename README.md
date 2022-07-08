@@ -86,3 +86,8 @@ rescue TerraError => e
     # Handle errors here
 end
 ```
+
+The result will be
+```
+{"status"=>"success", "providers"=>["FITBIT", "OURA", "TRAININGPEAKS", "WITHINGS", "SUUNTO", "PELOTON", "ZWIFT", "GARMIN", "EIGHT", "WAHOO", "GOOGLE", "POLAR", "WEAROS", "FREESTYLELIBRE", "TEMPO", "IFIT", "CONCEPT2", "FATSECRET", "CRONOMETER", "MYFITNESSPAL", "NUTRACHECK", "UNDERARMOUR", "OMRON", "RENPHO", "DEXCOM"]}
+```
