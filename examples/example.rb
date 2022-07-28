@@ -2,27 +2,27 @@ require 'Terra'
 
 #initialize the api here
 begin
-    terra = TerraAPI::Terra.new(YOUR_DEV_ID, YOUR_USER_ID)
+    terra = TerraAPI::Terra.new(YOUR_DEV_ID, YOUR_API_KEY)
+rescue TerraError => e
+    puts e
+end
+
+begin
+    test = terra.get_providers
+rescue TerraError => e
+    puts e
+else
+    puts test
+end
+
+begin
+    puts terra.get_subscribers
 rescue TerraError => e
     puts e
 end
 
 #begin
-#    test = terra.getProviders
-#rescue TerraError => e
-#    puts e
-#else
-#    puts test["status"]
-#end
-
-#begin
-#    puts terra.getSubscribers
-#rescue TerraError => e
-#    puts e
-#end
-
-#begin
-#    puts terra.generateWidgetSession(
+#    puts terra.generate_widget_session(
 #        "",
 #        ["GARMIN", "FITBIT", "OURA"],
 #        "EN",
@@ -34,25 +34,25 @@ end
 #end
 
 #begin
-#    puts terra.getUser(YOUR_USER_ID)
+#    puts terra.get_user(YOUR_USER_ID)
 #rescue TerraError => e
 #    puts e
 #end
 
 #begin
-#    puts terra.deauthUser(YOUR_USER_ID)
+#    puts terra.deauth_user(YOUR_USER_ID)
 #rescue TerraError => e
 #    puts e
 #end
 
 #begin
-#    puts terra.getAthelete(123, true)
+#    puts terra.get_athelete(YOUR_USER_ID)
 #rescue TerraError => e 
 #    puts e
 #end
 
 #begin
-#    puts terra.getActivity(YOUR_USER_ID, Time.new)
+#    puts terra.get_activity(YOUR_USER_ID, Time.new)
 #rescue TerraError => e 
 #    puts e
 #end

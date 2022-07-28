@@ -16,32 +16,30 @@ require "API/Helpers"
 require 'API/TerraResponse'
 
 module Data 
-    def self.GetData(
+    def self.get_data(
         type,
-        devId,
-        apiKey,
+        dev_id,
+        api_key,
         api_path,
-        userId,
+        user_id,
         startDate,
         endDate,
-        toWebhook
+        to_webhook
     )
         options = {
             "headers" => {
-                "X-API-Key" => apiKey,
-                "dev-id" => devId,
+                "X-API-Key" => api_key,
+                "dev-id" => dev_id,
                 "Content-Type" => "application/json",
             },
         }
 
-        url = "#{api_path}/#{type}?user_id=#{userId}&start_date=#{Helpers::GetTerraDate(startDate)}"
+        url = "#{api_path}/#{type}?user_id=#{user_id}&start_date=#{Helpers::GetTerraDate(startDate)}"
         if(endDate)
             url += "&end_date=#{Helpers::GetTerraDate(endDate)}"
         end
 
-        if(toWebhook)
-            url += "&to_webhook=#{toWebhook}"
-        end
+        url += "&to_webhook=#{to_webhook}"
 
         res = HTTParty.get("#{url}", :headers=>options["headers"])
         

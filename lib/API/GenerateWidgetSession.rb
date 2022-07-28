@@ -18,9 +18,9 @@ require 'API/TerraError'
 require 'API/TerraResponse'
 
 module GWS
-    def self.GenerateWidgetSession(
-        devId,
-        apiKey,
+    def self.generate_widget_session(
+        dev_id,
+        api_key,
         api_path,
         referenceId,
         providers,
@@ -40,14 +40,14 @@ module GWS
         
         options = {
             "headers" => {
-              "X-API-Key" => apiKey,
-              "dev-id" => devId,
+              "X-API-Key" => api_key,
+              "dev-id" => dev_id,
               "Content-Type" => "application/json",
             }
         }
 
         res = HTTParty.post(
-            "#{api_path}/auth/generateWidgetSession", 
+            "#{api_path}/auth/generate_widget_session", 
             :headers=>options["headers"], 
             :body=>data
         )

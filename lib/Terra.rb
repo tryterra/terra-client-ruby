@@ -25,13 +25,14 @@ require "API/TerraWebhook"
 
 module TerraAPI 
     class Terra
-        def initialize(devId, apiKey)
+        def initialize(dev_id, api_key)
+
             @api_path = "https://api.tryterra.co/v2"
 
             options = {
                 "headers" => {
-                    "X-API-Key" => apiKey,
-                    "dev-id" => devId,
+                    "X-API-Key" => api_key,
+                    "dev-id" => dev_id,
                     "Content-Type" => "application/json",
                 },
             }
@@ -39,28 +40,28 @@ module TerraAPI
             res = HTTParty.get("#{@api_path}/subscriptions", :headers=>options["headers"])
             case res.code
                 when 200
-                    @apiKey = apiKey
-                    @devId = devId
+                    @api_key = api_key
+                    @dev_id = dev_id
                     puts "Successfuly connected to the API"
                 when 400...600
                     raise TerraError.new(res)
             end
         end
 
-        def getAthelete(userId, toWebhook)
-            return Athelete::Get(@devId, @apiKey, @api_path, userId, toWebhook,)
+        def get_athelete(user_id, to_webhook=false)
+            return Athelete::get(@dev_id, @api_key, @api_path, user_id, to_webhook,)
         end
 
-        def generateWidgetSession(
+        def generate_widget_session(
             referenceId,
             providers,
             language,
             auth_success_redirect_url,
             auth_failure_redirect_url
         )
-            return GWS::GenerateWidgetSession(
-                @devId,
-                @apiKey,
+            return GWS::generate_widget_session(
+                @dev_id,
+                @api_key,
                 @api_path,
                 referenceId,
                 providers,
@@ -70,48 +71,48 @@ module TerraAPI
             )
         end
 
-        def getProviders()
-            return Provider::GetProviders(@devId, @apiKey, @api_path)
+        def get_providers()
+            return Provider::get_providers(@dev_id, @api_key, @api_path)
         end
 
-        def getSubscribers()
-            return Subscribers::GetSubscribers(@devId, @apiKey, @api_path)
+        def get_subscribers()
+            return Subscribers::get_subscribers(@dev_id, @api_key, @api_path)
         end
 
-        def getUser(userId)
-            return Users::GetUser(@devId, @apiKey, @api_path, userId)
+        def get_user(user_id)
+            return Users::get_user(@dev_id, @api_key, @api_path, user_id)
         end
 
-        def deauthUser(userId)
-            return Users::DeauthUser(@devId, @apiKey, @api_path, userId)
+        def deauth_user(user_id)
+            return Users::deauth_user(@dev_id, @api_key, @api_path, user_id)
         end
 
-        private def getData(type, userId, start_date, end_date, toWebhook)
-            return Data::GetData(type, @devId, @apiKey, @api_path, userId, start_date, end_date, toWebhook)
+        private def get_data(type, user_id, start_date, end_date, to_webhook=false)
+            return Data::get_data(type, @dev_id, @api_key, @api_path, user_id, start_date, end_date, to_webhook)
         end
 
-        def getActivity(userId, start_date, end_date=nil, toWebhook=nil)
-            return getData("activity", userId, start_date, end_date, toWebhook)
+        def get_activity(user_id, start_date, end_date=nil, to_webhook=false)
+            return get_data("activity", user_id, start_date, end_date, to_webhook)
         end
 
-        def getDaily(userId, start_date, end_date=nil, toWebhook=nil)
-            return getData("daily", userId, start_date, end_date, toWebhook)
+        def get_daily(user_id, start_date, end_date=nil, to_webhook=false)
+            return get_data("daily", user_id, start_date, end_date, to_webhook)
         end
 
-        def getBody(userId, start_date, end_date=nil, toWebhook=nil)
-            return getData("body", start_date, end_date, toWebhook)
+        def get_body(user_id, start_date, end_date=nil, to_webhook=false)
+            return get_data("body", start_date, end_date, to_webhook)
         end
 
-        def getSleep(userId, start_date, end_date=nil, toWebhook=nil)
-            return getData("sleep", userId, start_date, end_date, toWebhook)
+        def get_sleep(user_id, start_date, end_date=nil, to_webhook=false)
+            return get_data("sleep", user_id, start_date, end_date, to_webhook)
         end
 
-        def getMenstruation(userId, start_date, end_date=nil, toWebhook=nil)
-            return getData("menstruation", userId, start_date, end_date, toWebhook)
+        def get_menstruation(user_id, start_date, end_date=nil, to_webhook=false)
+            return get_data("menstruation", user_id, start_date, end_date, to_webhook)
         end
 
-        def parseWebhook(payload, type, userId=nil)
-            return TerraWebhook.new(playload, type, userId)
+        def parse_webhook(payload, type, user_id=nil)
+            return TerraWebhook.new(playload, type, user_id)
         end
     end
 end

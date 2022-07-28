@@ -17,11 +17,11 @@ require 'API/TerraError'
 require 'API/TerraResponse'
 
 module Provider 
-    def self.GetProviders(devId, apiKey, api_path)
+    def self.get_providers(dev_id, api_key, api_path)
         options = {
             "headers" => {
-                "X-API-Key" => apiKey,
-                "dev-id" => devId,
+                "X-API-Key" => api_key,
+                "dev-id" => dev_id,
                 "Content-Type" => "application/json",
             },
         }

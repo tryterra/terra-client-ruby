@@ -17,18 +17,18 @@ require 'json'
 require 'API/TerraError'
 require 'API/TerraResponse'
 module Athelete
-    def self.Get(devId, apiKey, api_path, userId, toWebhook)
+    def self.get(dev_id, api_key, api_path, user_id, to_webhook)
 
         options = {
             "headers" => {
-                "X-API-Key"=> apiKey,
-                "dev-id"=> devId,
+                "X-API-Key"=> api_key,
+                "dev-id"=> dev_id,
                 "Content-Type"=> "application/json",
             }  
         } 
         
         res = HTTParty.get(
-            "#{api_path}/athlete?user_id=#{userId}&to_webhook=#{toWebhook}", 
+            "#{api_path}/athlete?user_id=#{user_id}&to_webhook=#{to_webhook}", 
             :headers=>options["headers"]
         )
         

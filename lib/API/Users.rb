@@ -17,17 +17,17 @@ require 'API/TerraError'
 require 'API/TerraResponse'
 
 module Users 
-    def self.GetUser(devId, apiKey, api_path, userId)
+    def self.get_user(dev_id, api_key, api_path, user_id)
         options = {
             "headers" => {
-                "X-API-Key" => apiKey,
-                "dev-id" => devId,
+                "X-API-Key" => api_key,
+                "dev-id" => dev_id,
                 "Content-Type" => "application/json",
             },
         }
 
         res = HTTParty.get(
-            "#{api_path}/userInfo?user_id=#{userId}", 
+            "#{api_path}/userInfo?user_id=#{user_id}", 
             :headers=>options["headers"]
         )
 
@@ -39,17 +39,17 @@ module Users
         end
     end
 
-    def self.DeauthUser(devId, apiKey, api_path, userId)
+    def self.deauth_user(dev_id, api_key, api_path, user_id)
         options = {
             "headers" => {
-                "X-API-Key" => apiKey,
-                "dev-id" => devId,
+                "X-API-Key" => api_key,
+                "dev-id" => dev_id,
                 "Content-Type" => "application/json",
             },
         }
 
         begin
-            res = HTTParty.delete("#{api_path}/auth/deauthenticateUser?user_id=#{userId}", :headers=>options["headers"])
+            res = HTTParty.delete("#{api_path}/auth/deauthenticateUser?user_id=#{user_id}", :headers=>options["headers"])
         rescue HTTParty::Error => e
             raise TerraError.new(e)
         else 
