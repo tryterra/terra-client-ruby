@@ -23,49 +23,49 @@ end
 
 Now you can call the following functions from the instance:
 
-- `getAtheletes(userId:string, toWebhook:boolean_optional)`
-- `generateWidgetSession(
-            referenceId:string,
+- `get_atheletes(user_id:string, to_webhook:boolean_optional)`
+- `generate_widget_session(
+            reference_id:string,
             providers:array_of_string,
             language:string,
             auth_success_redirect_url:string,
             auth_failure_redirect_url:string
    )`
-- `getProviders`
-- `getSubscribers`
-- `getUser(userId:string)`
-- `deauthUser(userId:string)`
-- `getActivity( 
-      userId:string, 
+- `get_providers`
+- `get_subscribers`
+- `get_user(user_id:string)`
+- `deauthUser(user_id:string)`
+- `get_activity( 
+      user_id:string, 
       start_date:date, 
       end_date:date_optional, 
-      toWebhook:boolean_optional
+      to_webhook:boolean_optional
   )`
-- `getDaily( 
-      userId:string, 
+- `get_daily( 
+      user_id:string, 
       start_date:date, 
       end_date:date_optional, 
-      toWebhook:boolean_optional
+      to_webhook:boolean_optional
   )`
-- `getBody( 
-      userId:string, 
+- `get_body( 
+      user_id:string, 
       start_date:date, 
       end_date:date_optional, 
-      toWebhook:boolean_optional
+      to_webhook:boolean_optional
   )`
-- `getSleep( 
-      userId:string, 
+- `get_sleep( 
+      user_id:string, 
       start_date:date, 
       end_date:date_optional, 
-      toWebhook:boolean_optional
+      to_webhook:boolean_optional
   )`
-- `getMenstruation( 
-      userId:string, 
+- `get_menstruation( 
+      user_id:string, 
       start_date:date, 
       end_date:date_optional, 
-      toWebhook:boolean_optional
+      to_webhook:boolean_optional
   )`
-- `parseWebhook(payload:object, type:string, userId:string_optional)`
+- `parse_webhook(payload:object, type:string, user_id:string_optional)`
 
 In addition, all the data models documented on https://docs.tryterra.co/data-models are available to import and use.
 
