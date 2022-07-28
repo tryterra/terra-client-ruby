@@ -2,7 +2,7 @@ require 'Terra'
 
 #initialize the api here
 begin
-    terra = TerraAPI::Terra.new(YOUR_DEV_ID, YOUR_API_KEY)
+    terra = TerraAPI::Terra.new("testingAnis2", "O571xuiDDS9aGXlqro9youav9YOwD3r57YqC7bj0")
 rescue TerraError => e
     puts e
 end

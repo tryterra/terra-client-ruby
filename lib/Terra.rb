@@ -53,7 +53,7 @@ module TerraAPI
         end
 
         def generate_widget_session(
-            referenceId,
+            reference_id,
             providers,
             language,
             auth_success_redirect_url,
@@ -63,7 +63,7 @@ module TerraAPI
                 @dev_id,
                 @api_key,
                 @api_path,
-                referenceId,
+                reference_id,
                 providers,
                 language,
                 auth_success_redirect_url,
