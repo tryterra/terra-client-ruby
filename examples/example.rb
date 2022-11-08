@@ -2,7 +2,7 @@ require 'Terra'
 
 #initialize the api here
 begin
-    terra = TerraAPI::Terra.new("testingAnis2", "O571xuiDDS9aGXlqro9youav9YOwD3r57YqC7bj0")
+    terra = TerraAPI::Terra.new("DEVID", "APIKEY")
 rescue TerraError => e
     puts e
 end
@@ -21,38 +21,38 @@ rescue TerraError => e
     puts e
 end
 
-#begin
-#    puts terra.generate_widget_session(
-#        "",
-#        ["GARMIN", "FITBIT", "OURA"],
-#        "EN",
-#        "https://tryterra.co",
-#        "https://google.com"
-#    )
-#rescue TerraError => e
-#    puts e
-#end
+begin
+   puts terra.generate_widget_session(
+       "reference",
+       ["GARMIN", "FITBIT", "OURA"],
+       "EN",
+       "https://tryterra.co",
+       "https://google.com"
+   )
+rescue TerraError => e
+   puts e
+end
 
-#begin
+# begin
 #    puts terra.get_user(YOUR_USER_ID)
-#rescue TerraError => e
+# rescue TerraError => e
 #    puts e
-#end
+# end
 
-#begin
+# begin
 #    puts terra.deauth_user(YOUR_USER_ID)
-#rescue TerraError => e
+# rescue TerraError => e
 #    puts e
-#end
+# end
 
-#begin
+# begin
 #    puts terra.get_athelete(YOUR_USER_ID)
-#rescue TerraError => e 
+# rescue TerraError => e 
 #    puts e
-#end
+# end
 
-#begin
+# begin
 #    puts terra.get_activity(YOUR_USER_ID, Time.new)
-#rescue TerraError => e 
+# rescue TerraError => e 
 #    puts e
-#end
+# end

@@ -15,7 +15,7 @@
 require "API/Helpers"
 require 'API/TerraResponse'
 
-module Data 
+module TerraData 
     def self.get_data(
         type,
         dev_id,

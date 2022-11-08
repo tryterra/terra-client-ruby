@@ -18,7 +18,7 @@ require "API/GenerateWidgetSession"
 require "API/Providers"
 require "API/Subscribers"
 require "API/Users"
-require "API/Data"
+require "API/TerraData"
 require "API/Helpers"
 require "API/TerraWebhook"
 
@@ -88,7 +88,7 @@ module TerraAPI
         end
 
         private def get_data(type, user_id, start_date, end_date, to_webhook=false)
-            return Data::get_data(type, @dev_id, @api_key, @api_path, user_id, start_date, end_date, to_webhook)
+            return TerraData::get_data(type, @dev_id, @api_key, @api_path, user_id, start_date, end_date, to_webhook)
         end
 
         def get_activity(user_id, start_date, end_date=nil, to_webhook=false)

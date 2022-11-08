@@ -47,7 +47,7 @@ module GWS
         }
 
         res = HTTParty.post(
-            "#{api_path}/auth/generate_widget_session", 
+            "#{api_path}/auth/generateWidgetSession", 
             :headers=>options["headers"], 
             :body=>data
         )
