@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'tryterra-client'
-  s.version     = '0.2.0'
+  s.version     = '0.2.1'
   s.licenses    = ['MIT']
   s.summary     = "Ruby client for tryterra api"
   s.description = "Ruby client for tryterra api"
